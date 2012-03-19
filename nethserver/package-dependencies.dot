@@ -1,0 +1,23 @@
+digraph G {
+    rankdir = "LR"; compound = true; concentrate = true; fontname = "Arial"; fontnames="svg"; fontsize=10.0; 
+    node [shape=rect];
+    httpd_admin [fontcolor=blue,label="httpd-admin",URL="http://dev.nethesis.it/projects/nethserver-httpd-admin"];
+    base [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-base"];
+    directory [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-directory"];    
+    samba [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-samba"];    
+    ibays [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ibays"];    
+    nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui"];    
+            
+    base -> lib
+    base -> nethgui
+    ssh -> base
+    directory -> base
+    samba -> directory
+    ibays -> directory
+    httpd -> base
+    httpd_admin -> php
+    httpd_admin -> base
+    backup -> base
+    samba -> ibays [style=dashed];
+    httpd -> ibays [style=dashed]; 
+}
