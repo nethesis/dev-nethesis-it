@@ -1,5 +1,5 @@
-digraph DEV1 {
-    rankdir = "LR"; compound = true; concentrate = true; fontname = "Arial"; fontnames="svg"; fontsize=10.0; label="NethServer v80 DEV1"; labelloc = "t"
+digraph DEV {
+    rankdir = "LR"; compound = true; concentrate = true; fontname = "Arial"; fontnames="svg"; fontsize=10.0; label="NethServer DEV"; labelloc = "t"
     node [shape=rect];
     httpd_admin [fontcolor=blue,label="httpd-admin",URL="http://dev.nethesis.it/projects/nethserver-httpd-admin"];
     base [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-base"];

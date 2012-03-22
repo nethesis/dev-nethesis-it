@@ -9,6 +9,10 @@ THUMBS := $(addsuffix -thumb.png, $(basename ${DOTFILES}))
 
 DOCURL=http://dev.nethesis.it/nethserver/
 
+ifndef TAG
+TAGS=DEV1
+endif
+
 %-thumb.png: %.png
 	convert $< -resize 200x200 $@
 
@@ -20,18 +24,24 @@ DOCURL=http://dev.nethesis.it/nethserver/
 
 .PHONY: clean all sync
 
-all: ${PNGFILES} ${SVGFILES} ${THUMBS}
+all: ${PNGFILES} ${SVGFILES} ${THUMBS} ${TAGS}
+
+$(TAGS):
+	git archive --format=tar --prefix=$@/ --remote ssh://git.nethesis.it/var/nethserver/dev-nethesis-it.git $@ nethserver/ | tar xf -
+	cd $@/nethserver
+	make TAG=$@
+	cd ..
 
 sync: all rsync.list
 	rsync -zar -e "ssh -p 2222 -c blowfish -l git"  -stats \
 		--files-from=rsync.list \
-		${PWD}/ git@dev.nethesis.it:/var/www/html/nethserver
+		${PWD}/ git@dev.nethesis.it:/var/www/html/nethserver/$(TAG)
 
 rsync.list:
 	rm -f $@;
 	for TARGET in ${THUMBS} ${PNGFILES} ${SVGFILES}; do echo $$TARGET >>$@; done
 
 clean:
-	rm -f ${THUMBS} ${PNGFILES} ${SVGFILES} rsync.list *~
+	rm -rf ${THUMBS} ${PNGFILES} ${SVGFILES} ${TAGS} rsync.list *~
 
 
