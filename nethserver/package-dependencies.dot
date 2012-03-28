@@ -9,9 +9,10 @@ digraph DEV {
     lib [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-lib"];    
     httpd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-httpd"];    
     hosts [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-hosts"];
+    php [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-php"];
     domains [style="dashed",fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-domains"];
     yum [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-yum",style="dashed"];
-    ntp [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-ntp",style="dashed"];
+    ntp [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ntp"];
     dnsmasq [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-dnsmasq",style="dashed"];
     nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui"];    
     ssh [style="dashed",fontcolor=gray];
