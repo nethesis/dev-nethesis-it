@@ -8,14 +8,14 @@ digraph DEV {
     ibays [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ibays",shape="component"];    
     lib [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-lib",shape="component"];    
     httpd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-httpd"];    
-    hosts [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-hosts",shape="component"];
+    hosts [style="dashed",fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-hosts",shape="component"];
     php [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-php",shape="component"];
     domains [style="dashed",fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-domains",shape="component"];
     yum [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-yum",style="dashed"];
     ntp [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ntp"];
     dnsmasq [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-dnsmasq",style="dashed"];
     nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui",shape="component"];    
-    openssh [style="dashed",fontcolor=gray];
+    openssh [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-openssh"];
     backup [style="dashed",fontcolor=gray,shape="component"];
    
             
