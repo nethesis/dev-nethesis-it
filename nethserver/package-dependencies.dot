@@ -1,27 +1,27 @@
 digraph DEV {
     rankdir = "LR"; compound = true; concentrate = true; fontname = "Helvetica"; fontnames="svg"; fontsize=10.0; label="NethServer DEV"; labelloc = "t"
-    node [shape=rect,fontname="Helvetica"];
+    node [shape="oval",fontname="Helvetica"];
     httpd_admin [fontcolor=blue,label="httpd-admin",URL="http://dev.nethesis.it/projects/nethserver-httpd-admin"];
-    base [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-base"];
-    directory [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-directory"];    
+    base [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-base",shape="component"];
+    directory [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-directory",shape="component"];    
     samba [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-samba"];    
-    ibays [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ibays"];    
-    lib [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-lib"];    
+    ibays [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ibays",shape="component"];    
+    lib [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-lib",shape="component"];    
     httpd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-httpd"];    
-    hosts [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-hosts"];
-    php [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-php"];
-    domains [style="dashed",fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-domains"];
+    hosts [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-hosts",shape="component"];
+    php [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-php",shape="component"];
+    domains [style="dashed",fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-domains",shape="component"];
     yum [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-yum",style="dashed"];
     ntp [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ntp"];
     dnsmasq [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-dnsmasq",style="dashed"];
-    nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui"];    
-    ssh [style="dashed",fontcolor=gray];
-    backup [style="dashed",fontcolor=gray];
+    nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui",shape="component"];    
+    openssh [style="dashed",fontcolor=gray];
+    backup [style="dashed",fontcolor=gray,shape="component"];
    
             
     base -> lib
     base -> nethgui
-    ssh -> base
+    openssh -> base
     directory -> base
     samba -> directory
     ibays -> directory
@@ -29,7 +29,6 @@ digraph DEV {
     hosts -> dnsmasq
     dnsmasq -> base
     httpd_admin -> php
-    httpd_admin -> base
     backup -> base
     samba -> ibays [style=dashed];
     httpd -> ibays [style=dashed]; 
@@ -38,6 +37,6 @@ digraph DEV {
     domains -> base
     yum -> base
     ntp -> base
-
+    php -> base
         
 }
