@@ -1,0 +1,26 @@
+digraph User {
+  rankdir = "LR"; compound=true;  fontname = "Cantarell"; fontnames="svg"; fontsize=14;
+
+  node [fontname="Cantarell",fontsize=12];
+  edge [fontname="Cantarell",fontsize=10];
+
+
+  deleted [label="deleted"];
+
+  start [style=invis];
+
+  start -> new [label="user-create"];
+
+  subgraph cluster0 {
+    label="Created"
+
+    new -> enabled [label="set-password"];
+    enabled -> locked [label="user-lock"];
+    locked -> enabled [label="user-unlock"];
+  }
+
+    new -> deleted [style=invis];
+    enabled -> deleted [style=invis];
+    locked -> deleted [ltail=cluster0,label="user-delete"];
+
+}
