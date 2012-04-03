@@ -1,5 +1,5 @@
 digraph User {
-  rankdir = "LR"; compound=true;  fontname = "Cantarell"; fontnames="svg"; fontsize=14;
+  compound=true;  fontname = "Cantarell"; fontnames="svg"; fontsize=14;
 
   node [fontname="Cantarell",fontsize=12];
   edge [fontname="Cantarell",fontsize=10];
