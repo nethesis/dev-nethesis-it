@@ -16,11 +16,14 @@ digraph User {
 
     new -> enabled [label="set-password"];
     enabled -> locked [label="user-lock"];
+    enabled -> expired [headlabel="samba-update, ..",labeldistance=4,labelangle=-100];
+    expired -> enabled [label="set-password"];
     locked -> enabled [label="user-unlock"];
   }
 
     new -> deleted [style=invis];
     enabled -> deleted [style=invis];
     locked -> deleted [ltail=cluster0,label="user-delete"];
+
 
 }
