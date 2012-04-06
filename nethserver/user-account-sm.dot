@@ -14,15 +14,13 @@ digraph User {
   subgraph cluster0 {
     label="Created"
 
-    new -> enabled [label="set-password"];
-    enabled -> locked [label="user-lock"];
-    enabled -> expired [headlabel="samba-update, ..",labeldistance=4,labelangle=-100];
-    expired -> enabled [label="set-password"];
-    locked -> enabled [label="user-unlock"];
+    new -> active [label="set-password"];
+    active -> locked [label="user-lock"];
+    locked -> active [label="user-unlock"];
   }
 
     new -> deleted [style=invis];
-    enabled -> deleted [style=invis];
+    active -> deleted [style=invis];
     locked -> deleted [ltail=cluster0,label="user-delete"];
 
 
