@@ -14,6 +14,9 @@ digraph DEV {
     yum [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-yum",style="dashed"];
     ntp [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ntp"];
     dnsmasq [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-dnsmasq",style="dashed"];
+    mail [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-mail",style="dashed"];
+    cups [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-cups",style="dashed"];
+    firewall [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-firewall",style="dashed"];
     nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui",shape="component"];    
     openssh [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-openssh"];
     backup [style="dashed",fontcolor=gray,shape="component"];
@@ -38,5 +41,9 @@ digraph DEV {
     yum -> base
     ntp -> base
     php -> base
+    cups -> base
+    samba -> cups [style=dashed]
+    mail -> directory
+    firewall -> base
         
 }
