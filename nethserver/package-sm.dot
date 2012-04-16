@@ -1,0 +1,20 @@
+digraph Package {
+  compound=true;  fontname = "Cantarell"; fontnames="svg"; fontsize=14;
+  label="prop PackageStatus";
+
+  node [fontname="Cantarell",fontsize=12];
+  edge [fontname="Cantarell",fontsize=10];
+
+  U [label="uninstalled"];
+  I [label="installed"];
+  new [label="new/undefined"];
+
+  start [style=invis];
+
+  start -> new;
+
+    new -> I [label="*-update"];
+    I -> U [label="*-uninstall"];
+    U -> I [label="*-update"];
+
+}
