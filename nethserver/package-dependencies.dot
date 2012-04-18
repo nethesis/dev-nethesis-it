@@ -1,6 +1,9 @@
 digraph DEV {
     rankdir = "LR"; compound = true; concentrate = true; fontname = "Helvetica"; fontnames="svg"; fontsize=10.0; label="NethServer DEV"; labelloc = "t"
+
     node [shape="oval",fontname="Helvetica"];
+    edge [arrowsize=0.7];
+
     httpd_admin [fontcolor=blue,label="httpd-admin",URL="http://dev.nethesis.it/projects/nethserver-httpd-admin"];
     base [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-base",shape="component"];
     directory [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-directory",shape="component"];    
@@ -29,22 +32,25 @@ digraph DEV {
     directory -> base
     samba -> directory
     ibays -> directory
+//    ibays -> domains [style=dotted,arrowhead=vee]
     httpd -> base
-    hosts -> dnsmasq
+//    dnsmasq -> domains [style=dotted,arrowhead=vee];
+//    dnsmasq -> hosts [style=dotted,arrowhead=vee];
     dnsmasq -> base
+    hosts -> base
     httpd_admin -> php
     backup -> base
-    samba -> ibays [style=dashed];
-    httpd -> ibays [style=dashed]; 
-    httpd -> hosts [style=dashed];
-    httpd -> domains [style=dashed];
+    samba -> ibays [style=dotted,arrowhead=vee];
+//    httpd -> ibays [style=dotted,arrowhead=vee]; 
+//    httpd -> hosts [style=dotted,arrowhead=vee];
+//    httpd -> domains [style=dotted,arrowhead=vee];
     domains -> base
     yum -> base
     ntp -> base
     php -> base
     cups -> base
-    samba -> cups [style=dashed]
     mail -> directory
+    mail -> domains [style=dotted,arrowhead=vee]
     firewall -> base
     ardad -> base
         
