@@ -13,17 +13,14 @@ digraph DEV {
     httpd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-httpd"];    
     hosts [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-hosts",shape="component"];
     php [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-php",shape="component"];
-    domains [style="dashed",fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-domains",shape="component"];
     yum [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-yum",style="dashed"];
     ntp [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ntp"];
     dnsmasq [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-dnsmasq"];
     mail [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-mail",style="dashed"];
-    cups [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-cups",style="dashed"];
-    firewall [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-firewall",style="dashed"];
     ardad [fontcolor=gray,style="dashed"];
     nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui",shape="component"];    
     openssh [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-openssh"];
-    backup [style="dashed",fontcolor=gray,shape="component"];
+
                
     base -> lib
     base -> nethgui
@@ -31,26 +28,16 @@ digraph DEV {
     directory -> base
     samba -> directory
     ibays -> directory
-//    ibays -> domains [style=dotted,arrowhead=vee]
     httpd -> base
-//    dnsmasq -> domains [style=dotted,arrowhead=vee];
     dnsmasq -> hosts [style=dotted,arrowhead=vee];
     dnsmasq -> base
     hosts -> base
     httpd_admin -> php
-    backup -> base
     samba -> ibays [style=dotted,arrowhead=vee];
-//    httpd -> ibays [style=dotted,arrowhead=vee]; 
-//    httpd -> hosts [style=dotted,arrowhead=vee];
-//    httpd -> domains [style=dotted,arrowhead=vee];
-    domains -> base
     yum -> base
     ntp -> base
     php -> base
-    cups -> base
     mail -> directory
-    mail -> domains [style=dotted,arrowhead=vee]
-    firewall -> base
     ardad -> base
         
 }
