@@ -10,7 +10,7 @@ THUMBS := $(addsuffix -thumb.png, $(basename ${DOTFILES}))
 DOCURL=http://dev.nethesis.it/nethserver/
 
 ifndef TAG
-TAGS=DEV4
+TAGS=DEV103
 endif
 
 %-thumb.png: %.png
