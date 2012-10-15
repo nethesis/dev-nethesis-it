@@ -16,10 +16,13 @@ digraph DEV {
     yum [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-yum",style="dashed"];
     ntp [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ntp"];
     dnsmasq [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-dnsmasq"];
-    mail [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-mail",style="dashed"];
+    mails [label="mail-server",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-mail-server"];
+    mailf [label="mail-filter",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-mail-filter"];
+    mailc [label="mail-common",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-mail-common"];
     ardad [fontcolor=gray,style="dashed"];
     nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui",shape="component"];    
     openssh [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-openssh"];
+    antivirus [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-antivirus"];
 
                
     base -> lib
@@ -37,7 +40,12 @@ digraph DEV {
     yum -> base
     ntp -> base
     php -> base
-    mail -> directory
+    mails -> directory
+    mails -> mailc
+    mailf -> mailc
+    mailf -> antivirus
+    mailc -> base
     ardad -> base
-        
+    antivirus -> base
+
 }
