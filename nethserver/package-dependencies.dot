@@ -13,7 +13,7 @@ digraph DEV {
     httpd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-httpd"];    
     hosts [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-hosts",shape="component"];
     php [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-php",shape="component"];
-    yum [fontcolor=gray,URL="http://dev.nethesis.it/projects/nethserver-yum",style="dashed"];
+    yum [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-yum"];
     ntp [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ntp"];
     dnsmasq [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-dnsmasq"];
     mails [label="mail-server",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-mail-server"];
@@ -37,7 +37,7 @@ digraph DEV {
     hosts -> base
     httpd_admin -> php
     samba -> ibays [style=dotted,arrowhead=vee];
-    yum -> base
+    base -> yum
     ntp -> base
     php -> base
     mails -> directory
