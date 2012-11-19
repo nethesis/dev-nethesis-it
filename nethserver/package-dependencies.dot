@@ -19,7 +19,6 @@ digraph DEV {
     mails [label="mail-server",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-mail-server"];
     mailf [label="mail-filter",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-mail-filter"];
     mailc [label="mail-common",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-mail-common"];
-    ardad [fontcolor=gray,style="dashed"];
     nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui",shape="component"];    
     openssh [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-openssh"];
     antivirus [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-antivirus"];
@@ -32,6 +31,7 @@ digraph DEV {
     samba -> directory
     ibays -> directory
     httpd -> base
+    httpd -> ibays [style=dotted,arrowhead=vee];
     dnsmasq -> hosts [style=dotted,arrowhead=vee];
     dnsmasq -> base
     hosts -> base
@@ -45,7 +45,6 @@ digraph DEV {
     mailf -> mailc
     mailf -> antivirus
     mailc -> base
-    ardad -> base
     antivirus -> base
 
 }
