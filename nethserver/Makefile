@@ -33,9 +33,9 @@ $(TAGS):
 	cd ..
 
 sync: all rsync.list
-	rsync -zar -e "ssh -p 2222 -c blowfish -l git"  -stats \
+	rsync -zr -e "ssh -p 2222 -c blowfish -l davidep"  \
 		--files-from=rsync.list \
-		${PWD}/ git@dev.nethesis.it:/var/www/html/nethserver/$(TAG)
+		${PWD}/ davidep@dev.nethesis.it:/var/www/html/sites/nethesis-redmine/public/nethserver/$(TAG)
 
 rsync.list:
 	rm -f $@;
