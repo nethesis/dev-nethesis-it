@@ -5,12 +5,13 @@
 DOTFILES := $(shell find . -name '*.dot')
 PNGFILES := $(addsuffix .png, $(basename ${DOTFILES}))
 SVGFILES := $(addsuffix .svg, $(basename ${DOTFILES}))
+ISOFILES := $(shell find iso/ -name '*.iso*')
 THUMBS := $(addsuffix -thumb.png, $(basename ${DOTFILES}))
 
 DOCURL=http://dev.nethesis.it/nethserver/
 
 ifndef TAG
-TAGS=DEV133
+TAGS=NSA1
 endif
 
 %-thumb.png: %.png
@@ -39,7 +40,7 @@ sync: all rsync.list
 
 rsync.list:
 	rm -f $@;
-	for TARGET in ${THUMBS} ${PNGFILES} ${SVGFILES}; do echo $$TARGET >>$@; done
+	for TARGET in ${THUMBS} ${PNGFILES} ${SVGFILES} ${ISOFILES}; do echo $$TARGET >>$@; done
 
 clean:
 	rm -rf ${THUMBS} ${PNGFILES} ${SVGFILES} ${TAGS} rsync.list *~
