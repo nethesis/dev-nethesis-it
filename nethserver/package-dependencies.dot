@@ -23,7 +23,8 @@ digraph "v6.3-alpha2" {
     openssh [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-openssh"];
     antivirus [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-antivirus"];
     cups [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-cups"];
-    avahi [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-avahi"];
+    avahi [fontcolor=blue];
+    ejabber [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ejabberd"];
 
     release [fontcolor=green,URL="https://dev.nethesis.it/projects/nethserver-base/repository/nethserver-release"];
     grub [fontcolor=green,URL="https://dev.nethesis.it/projects/nethserver-base/repository/nethserver-grub"];
@@ -55,5 +56,6 @@ digraph "v6.3-alpha2" {
     cups -> base
     avahi -> base
     cups -> avahi [style=dotted,arrowhead=vee];
+    ejabber -> base
 
 }
