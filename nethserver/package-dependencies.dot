@@ -26,6 +26,7 @@ digraph "v6.3-alpha2" {
     avahi [fontcolor=blue];
     ejabber [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ejabberd"];
     mysql [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-mysql"];
+    hylafax [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-hylafax"];
 
     release [fontcolor=green,URL="https://dev.nethesis.it/projects/nethserver-base/repository/nethserver-release"];
     grub [fontcolor=green,URL="https://dev.nethesis.it/projects/nethserver-base/repository/nethserver-grub"];
@@ -59,5 +60,7 @@ digraph "v6.3-alpha2" {
     cups -> avahi [style=dotted,arrowhead=vee];
     ejabber -> base
     mysql -> base
+    hylafax -> directory
+    hylafax -> mailc
 
 }
