@@ -27,6 +27,8 @@ digraph "v6.3-alpha2" {
     ejabber [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ejabberd"];
     mysql [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mysql"];
     hylafax [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-hylafax"];
+    collectd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd"];
+    collectd_web [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd-web"];
 
     release [fontcolor=green,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-base/repository/nethserver-release"];
     grub [fontcolor=green,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-base/repository/nethserver-grub"];
@@ -70,5 +72,8 @@ digraph "v6.3-alpha2" {
     sogo -> mails
     sogo -> mysql
     memcached -> base
+    collectd -> base
+    collectd_web -> collectd
+    collectd_web -> httpd
 
 }
