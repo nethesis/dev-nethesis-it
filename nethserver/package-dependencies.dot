@@ -29,6 +29,8 @@ digraph "v6.3-alpha2" {
     hylafax [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-hylafax"];
     collectd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd"];
     collectd_web [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd-web"];
+    backup_data [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];
+    backup_config [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];
 
     release [fontcolor=green,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-base/repository/nethserver-release"];
     grub [fontcolor=green,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-base/repository/nethserver-grub"];
@@ -75,5 +77,7 @@ digraph "v6.3-alpha2" {
     collectd -> base
     collectd_web -> collectd
     collectd_web -> httpd
+    backup_config -> base
+    backup_data -> backup_config
 
 }
