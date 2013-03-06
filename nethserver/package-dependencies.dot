@@ -4,40 +4,40 @@ digraph "v6.3-alpha2" {
     node [shape="component",fontname="Helvetica"];
     edge [arrowsize=0.7];
 
-    httpd_admin [fontcolor=blue,label="httpd-admin",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-httpd-admin"];
-    base [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-base"];
-    directory [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-directory"];    
-    ibays [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ibays"];    
-    lib [fontcolor=gray];    
-    httpd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-httpd"];    
-    hosts [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-hosts"];
-    php [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-php"];
-    yum [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-yum"];
-    ntp [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ntp"];
-    dnsmasq [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-dnsmasq"];
-    openssh [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-openssh"];
     antivirus [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-antivirus"];
     avahi [fontcolor=gray];
-    mysql [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mysql"];
-    release [fontcolor=gray];    
-    grub [fontcolor=gray];    
-    memcached [fontcolor=gray];   
-
-    nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui"];        
-
-    samba [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-samba/wiki/nethserver-samba"];    
-    
+    backup_config [label="backup-config",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];
+    backup_data [label="backup-data",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];   
+    base [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-base"];
+    collectd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd"];
+    collectd_web [label="collectd-web",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd-web"];
     cups [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-cups/wiki/nethserver-cups"];
-    
-    hylafax [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-hylafax/wiki/nethserver-hylafax"];
-    
+    directory [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-directory"];
+    dnsmasq [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-dnsmasq"];
     ejabber [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-ejabberd/wiki/nethserver-ejabberd"];
-    
-    mail_server [label="mail-server",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-server"];
-    mail_filter [label="mail-filter",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-filter"];
+    grub [fontcolor=gray];
+    hosts [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-hosts"];
+    httpd_admin [fontcolor=blue,label="httpd-admin",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-httpd-admin"];
+    httpd [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-httpd"];
+    hylafax [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver-hylafax/wiki/nethserver-hylafax"];
+    ibays [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ibays"];
+    lib [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-lib"];
     mail_common [label="mail-common",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-common"];
-    sogo [fontcolor=blue,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo"];        
-    sogo_thunderbird [label="sogo-thunderbird",fontcolor=blue,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo-thunderbird"];        
+    mail_filter [label="mail-filter",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-filter"];
+    mail_server [label="mail-server",fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-server"];
+    memcached [fontcolor=gray];
+    mysql [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mysql"];
+    nethgui [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethgui"];
+    ntp [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ntp"];
+    openssh [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-openssh"];
+    php [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-php"];
+    release [fontcolor=gray];
+    samba [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-samba"];
+    sogo [fontcolor=blue,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo"];
+    sogo_thunderbird [label="sogo-thunderbird",fontcolor=blue,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo-thunderbird"];
+    yum [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-yum"];
+		 
+   
     
     base -> lib
     base -> nethgui
@@ -76,5 +76,10 @@ digraph "v6.3-alpha2" {
     sogo -> mysql
     sogo_thunderbird -> base
     memcached -> base
+    collectd -> base
+    collectd_web -> collectd
+    collectd_web -> httpd
+    backup_config -> base
+    backup_data -> backup_config
 
 }
