@@ -41,6 +41,7 @@ sync: all rsync.list
 rsync.list:
 	rm -f $@;
 	for TARGET in ${THUMBS} ${PNGFILES} ${SVGFILES} ${ISOFILES}; do echo $$TARGET >>$@; done
+	echo figures/ >>$@
 
 clean:
 	rm -rf ${THUMBS} ${PNGFILES} ${SVGFILES} ${TAGS} rsync.list *~
