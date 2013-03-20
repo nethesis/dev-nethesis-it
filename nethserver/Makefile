@@ -38,10 +38,15 @@ sync: all rsync.list
 		--files-from=rsync.list \
 		${PWD}/ davidep@dev.nethesis.it:/var/www/html/sites/nethesis-redmine/public/nethserver/$(TAG)
 
+comps.html:
+	cat comps/comps-ns6.xml | sed 's/_name/name/; s/_description/description/' | xsltproc --stringparam date "`LANG=C date`" --stringparam urlPrefix https://dev.nethesis.it comps2html.xsl  - 2>/dev/null >$@
+
+
 rsync.list:
 	rm -f $@;
 	for TARGET in ${THUMBS} ${PNGFILES} ${SVGFILES} ${ISOFILES}; do echo $$TARGET >>$@; done
 	echo figures/ >>$@
+	echo comps.html >>$@
 
 clean:
 	rm -rf ${THUMBS} ${PNGFILES} ${SVGFILES} ${TAGS} rsync.list *~
