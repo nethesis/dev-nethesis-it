@@ -11,7 +11,7 @@ THUMBS := $(addsuffix -thumb.png, $(basename ${DOTFILES}))
 DOCURL=http://dev.nethesis.it/nethserver/
 
 ifndef TAG
-TAGS=NSA1
+TAGS=v6.4-alpha2
 endif
 
 %-thumb.png: %.png
@@ -28,7 +28,7 @@ endif
 all: ${PNGFILES} ${SVGFILES} ${THUMBS} ${TAGS}
 
 $(TAGS):
-	git archive --format=tar --prefix=$@/ --remote ssh://git.nethesis.it/var/nethserver/dev-nethesis-it.git $@ nethserver/ | tar xf -
+	git archive --format=tar --prefix=$@/nethserver/  $@ . | tar xf -
 	cd $@/nethserver
 	make TAG=$@
 	cd ..

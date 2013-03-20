@@ -1,5 +1,5 @@
-digraph "v6.3-alpha2" {
-    rankdir = "LR"; compound = true; concentrate = true; fontname = "Helvetica"; fontnames="svg"; fontsize=10.0; label="NethServer v6.3-alpha2"; labelloc = "t"
+digraph "v6.4-alpha2" {
+    rankdir = "LR"; compound = true; concentrate = true; fontname = "Helvetica"; fontnames="svg"; fontsize=10.0; label="NethServer v6.4-alpha2"; labelloc = "t"
 
     node [shape="component",fontname="Helvetica"];
     edge [arrowsize=0.7];
