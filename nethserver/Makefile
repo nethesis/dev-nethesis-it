@@ -25,7 +25,7 @@ endif
 
 .PHONY: clean all sync
 
-all: ${PNGFILES} ${SVGFILES} ${THUMBS} ${TAGS}
+all: ${PNGFILES} ${SVGFILES} ${THUMBS} ${TAGS} comps.html
 
 $(TAGS):
 	git archive --format=tar --prefix=$@/nethserver/  $@ . | tar xf -
@@ -49,6 +49,6 @@ rsync.list:
 	echo comps.html >>$@
 
 clean:
-	rm -rf ${THUMBS} ${PNGFILES} ${SVGFILES} ${TAGS} rsync.list *~
+	rm -rf ${THUMBS} ${PNGFILES} ${SVGFILES} ${TAGS} rsync.list comps.html *~
 
 
