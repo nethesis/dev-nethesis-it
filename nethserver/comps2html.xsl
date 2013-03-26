@@ -87,12 +87,13 @@
     </p>
     <xsl:choose>
       <xsl:when test="uservisible = 'true'">
-	<xsl:apply-templates select="packagelist"/>
+
       </xsl:when>
       <xsl:otherwise>
 	<p><em>hidden group</em></p>
       </xsl:otherwise>
     </xsl:choose>
+    <xsl:apply-templates select="packagelist"/>
   </xsl:template>
 
   <xsl:template match="packagelist">
