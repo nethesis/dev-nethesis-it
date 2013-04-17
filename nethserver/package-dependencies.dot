@@ -40,7 +40,6 @@ digraph "v6.4-alpha2" {
    
     
     base -> lib
-    base -> nethgui
     openssh -> base
     directory -> base
     samba -> directory
@@ -51,6 +50,7 @@ digraph "v6.4-alpha2" {
     dnsmasq -> base
     hosts -> base
     httpd_admin -> php
+    httpd_admin -> nethgui
     samba -> ibays [style=dotted,arrowhead=vee];
     base -> yum
     ntp -> base
