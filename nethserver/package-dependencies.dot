@@ -36,6 +36,8 @@ digraph "v6.4-alpha2" {
     samba [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-samba"];
     sogo [fontcolor=blue,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo"];
     sogo_thunderbird [label="sogo-thunderbird",fontcolor=blue,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo-thunderbird"];
+    shorewall [fontcolor=blue,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-shorewall"];        
+    smartd [fontcolor=blue,URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-smartd"];    
     yum [fontcolor=blue,URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-yum"];
 		 
    
@@ -83,5 +85,7 @@ digraph "v6.4-alpha2" {
     backup_config -> base
     backup_data -> backup_config
     register -> base
+    smartd -> base
+    shorewall -> base
 
 }
