@@ -17,12 +17,14 @@ digraph "v6.4-beta2" {
     backup_config [label="backup-config",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];
     backup_data [label="backup-data",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];   
     base [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-base"];
+    c_icap [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-c-icap"];
     collectd [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd"];
     collectd_web [label="collectd-web",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd-web"];
     cups [URL="http://dev.nethesis.it/projects/nethserver-cups/wiki/nethserver-cups"];
     directory [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-directory"];
     dnsmasq [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-dnsmasq"];
     ejabber [URL="http://dev.nethesis.it/projects/nethserver-ejabberd/wiki/nethserver-ejabberd"];
+    firewall_base [URL="http://dev.nethesis.it/projects/nethserver-ejabberd/wiki/nethserver-firewall-base"];
     grub [fontcolor=gray];
     hosts [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-hosts"];
     httpd_admin [label="httpd-admin",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-httpd-admin"];
@@ -30,6 +32,7 @@ digraph "v6.4-beta2" {
     hylafax [URL="http://dev.nethesis.it/projects/nethserver-hylafax/wiki/nethserver-hylafax"];
     ibays [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ibays"];
     lib [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-lib"];
+    lightsquid [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-lightsquid"];
     mail_common [label="mail-common",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-common"];
     mail_filter [label="mail-filter",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-filter"];
     mail_server [label="mail-server",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-server"];
@@ -37,15 +40,20 @@ digraph "v6.4-beta2" {
     mysql [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mysql"];
     nethgui [URL="http://dev.nethesis.it/projects/nethgui"];
     ntp [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ntp"];
+    nut [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-nut"];
     openssh [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-openssh"];
     php [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-php"];
     register [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-register"];
     release [fontcolor=gray];
     samba [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-samba"];
+    samba_audit [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-samba-audit"];
     sogo [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo"];
     sogo_thunderbird [label="sogo-thunderbird",URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo-thunderbird"];
     shorewall [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-shorewall"];        
     smartd [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-smartd"];    
+    squid [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-squid"];
+    squidclamav [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-squidclamav"];
+    squidguard [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-squidguard"];
     yum [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-yum"];
 		       
     base -> lib
@@ -94,5 +102,20 @@ digraph "v6.4-beta2" {
     register -> base
     smartd -> base
     shorewall -> base
-
+    firewall_base -> shorewall
+    squid -> firewall_base
+    squidclamav -> squid
+    squidclamav -> antivirus
+    squidclamav -> httpd
+    squidclamav -> c_icap
+    c_icap -> base
+    lightsquid -> squid
+    lightsquid -> httpd
+    nut -> base
+    samba_audit -> ibays
+    samba_audit -> httpd
+    samba_audit -> mysql
+    samba_audit -> samba
+    squidguard -> httpd
+    squidguard -> squid
 }
