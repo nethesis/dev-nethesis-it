@@ -58,9 +58,9 @@
 	    <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$urlPrefix" />/nethserver/comps2html.xsl</xsl:attribute>comps2html.xsl</xsl:element></small>
 	  </p>
 	  <ul class="toc">
-	    <xsl:apply-templates mode="toc" />
+	    <xsl:apply-templates mode="toc" ><xsl:sort select="name" /></xsl:apply-templates>
 	  </ul>
-	  <xsl:apply-templates />
+	  <xsl:apply-templates ><xsl:sort select="name" /></xsl:apply-templates>
 	</div>
       </body>
     </html>   
@@ -74,6 +74,9 @@
 	</xsl:element>
     </li>
   </xsl:template>
+
+  <xsl:template match="//category" mode="toc"></xsl:template>
+  <xsl:template match="//category"></xsl:template>
 
   <xsl:template match="//group">
     <xsl:element name="h2">
