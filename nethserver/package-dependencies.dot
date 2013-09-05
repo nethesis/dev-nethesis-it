@@ -24,6 +24,7 @@ digraph "v6.4-beta2" {
     directory [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-directory"];
     dnsmasq [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-dnsmasq"];
     ejabber [URL="http://dev.nethesis.it/projects/nethserver-ejabberd/wiki/nethserver-ejabberd"];
+    fetchmail [URL="http://dev.nethesis.it/projects/nethserver-fetchmail/wiki/nethserver-fetchmail"];
     firewall_base [URL="http://dev.nethesis.it/projects/nethserver-ejabberd/wiki/nethserver-firewall-base"];
     grub [fontcolor=gray];
     hosts [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-hosts"];
@@ -122,4 +123,5 @@ digraph "v6.4-beta2" {
     squidguard -> squid
     redis -> base
     ntopng -> redis
+    fetchmail -> mail_server
 }
