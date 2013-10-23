@@ -9,119 +9,140 @@ digraph "v6.4-beta2" {
 	fontname="sans-serif";
 	
 
-    node [shape="component",fontname="sans-serif",fontcolor=blue,fontsize=12.0];
-    edge [arrowsize=0.7];
+	node [shape="component",fontname="sans-serif",fontcolor=blue,fontsize=12.0];
+	edge [arrowsize=0.7];
 
-    antivirus [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-antivirus"];
-    avahi [fontcolor=gray];
-    backup_config [label="backup-config",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];
-    backup_data [label="backup-data",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];   
-    base [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-base"];
-    c_icap [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-c-icap"];
-    collectd [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd"];
-    collectd_web [label="collectd-web",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd-web"];
-    cups [URL="http://dev.nethesis.it/projects/nethserver-cups/wiki/nethserver-cups"];
-    directory [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-directory"];
-    dnsmasq [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-dnsmasq"];
-    ejabber [URL="http://dev.nethesis.it/projects/nethserver-ejabberd/wiki/nethserver-ejabberd"];
-    fetchmail [URL="http://dev.nethesis.it/projects/nethserver-fetchmail/wiki/nethserver-fetchmail"];
-    firewall_base [URL="http://dev.nethesis.it/projects/nethserver-ejabberd/wiki/nethserver-firewall-base"];
-    grub [fontcolor=gray];
-    hosts [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-hosts"];
-    httpd_admin [label="httpd-admin",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-httpd-admin"];
-    httpd [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-httpd"];
-    hylafax [URL="http://dev.nethesis.it/projects/nethserver-hylafax/wiki/nethserver-hylafax"];
-    ibays [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ibays"];
-    lib [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-lib"];
-    lightsquid [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-lightsquid"];
-    mail_common [label="mail-common",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-common"];
-    mail_filter [label="mail-filter",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-filter"];
-    mail_server [label="mail-server",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-server"];
-    memcached [fontcolor=gray];
-    mysql [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mysql"];
-    nethgui [URL="http://dev.nethesis.it/projects/nethgui"];
-    ntp [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ntp"];
-    ntopng [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ntopng"];
-    nut [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-nut"];
-    openssh [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-openssh"];
-    php [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-php"];
-    redis [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-redis"];
-    register [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-register"];
-    release [fontcolor=gray];
-    samba [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-samba"];
-    samba_audit [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-samba-audit"];
-    sogo [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo"];
-    sogo_thunderbird [label="sogo-thunderbird",URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo-thunderbird"];
-    shorewall [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-shorewall"];        
-    smartd [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-smartd"];    
-    squid [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-squid"];
-    squidclamav [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-squidclamav"];
-    squidguard [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-squidguard"];
-    yum [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-yum"];
-		       
-    base -> lib
-    openssh -> base
-    directory -> base
-    samba -> directory
-    ibays -> directory
-    httpd -> base
-    httpd -> ibays [style=dotted,arrowhead=vee];
-    dnsmasq -> hosts [style=dotted,arrowhead=vee];
-    dnsmasq -> base
-    hosts -> base
-    httpd_admin -> php
-    httpd_admin -> nethgui
-    samba -> ibays [style=dotted,arrowhead=vee];
-    base -> yum
-    ntp -> base
-    php -> base
-    mail_server -> directory
-    mail_server -> mail_common
-    mail_server -> samba [style=dotted,arrowhead=vee];    
-    mail_filter -> mail_common
-    mail_filter -> antivirus
-    mail_common -> base
-    antivirus -> base
-    release -> base
-    grub -> base
-    cups -> base
-    avahi -> base
-    cups -> avahi [style=dotted,arrowhead=vee];
-    ejabber -> directory
-    ejabber -> httpd
-    mysql -> base
-    hylafax -> directory
-    hylafax -> mail_common
-    sogo -> memcached
-    sogo -> mail_server
-    sogo -> mysql
-    sogo_thunderbird -> base
-    memcached -> base
-    collectd -> base
-    collectd_web -> collectd
-    collectd_web -> httpd
-    backup_config -> base
-    backup_data -> backup_config
-    register -> base
-    smartd -> base
-    shorewall -> base
-    firewall_base -> shorewall
-    squid -> firewall_base
-    squidclamav -> squid
-    squidclamav -> antivirus
-    squidclamav -> httpd
-    squidclamav -> c_icap
-    c_icap -> base
-    lightsquid -> squid
-    lightsquid -> httpd
-    nut -> base
-    samba_audit -> ibays
-    samba_audit -> httpd
-    samba_audit -> mysql
-    samba_audit -> samba
-    squidguard -> httpd
-    squidguard -> squid
-    redis -> base
-    ntopng -> redis
-    fetchmail -> mail_server
+	subgraph {
+		antivirus [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-antivirus"];
+		avahi [fontcolor=gray];
+		backup_config [label="backup-config",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];
+		backup_data [label="backup-data",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-backup"];   
+		c_icap [label="c-icap",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-c-icap"];
+		collectd [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd"];
+		collectd_web [label="collectd-web",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-collectd-web"];
+		cups [URL="http://dev.nethesis.it/projects/nethserver-cups/wiki/nethserver-cups"];
+		directory [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-directory"];
+		dnsmasq [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-dnsmasq"];
+		ejabber [URL="http://dev.nethesis.it/projects/nethserver-ejabberd/wiki/nethserver-ejabberd"];
+		fetchmail [URL="http://dev.nethesis.it/projects/nethserver-fetchmail/wiki/nethserver-fetchmail"];
+		firewall_base [label="firewall-base",URL="http://dev.nethesis.it/projects/nethserver-ejabberd/wiki/nethserver-firewall-base"];
+		httpd [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-httpd"];
+		hylafax [URL="http://dev.nethesis.it/projects/nethserver-hylafax/wiki/nethserver-hylafax"];
+		ibays [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ibays"];
+		ipsec [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ipsec"];    
+		lightsquid [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-lightsquid"];
+		mail_common [label="mail-common",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-common"];
+		mail_filter [label="mail-filter",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-filter"];
+		mail_server [label="mail-server",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mail-server"];
+		memcached [fontcolor=gray];
+		mysql [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-mysql"];
+		ntopng [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ntopng"];
+		nut [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-nut"];
+		openssh [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-openssh"];
+		openvpn [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-openvpn"];
+		redis [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-redis"];
+		register [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-register"];
+		samba [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-samba"];
+		samba_audit [label="samba-audit",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-samba-audit"];
+		shorewall [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-shorewall"];        
+		sogo [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo"];
+		sogo_thunderbird [label="sogo-thunderbird",URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-sogo-thunderbird"];
+		squid [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-squid"];
+		squidclamav [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-squidclamav"];
+		squidguard [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-squidguard"];
+		vpn [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-vpn"];
+		
+		subgraph cluster_iso {
+			label="ISO packages"
+			color=lightgray
+			labelloc = "t";
+			labeljust = "r";
+			fontsize = 14.0
+			base [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-base"];
+			grub [fontcolor=gray];
+			hosts [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-hosts"];			
+			httpd_admin [label="httpd-admin",URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-httpd-admin"];
+			lib [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-lib"];
+			nethgui [URL="http://dev.nethesis.it/projects/nethgui"];
+			ntp [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-ntp"];
+			php [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-php"];			
+			release [fontcolor=gray];
+			smartd [URL="https://dev.nethesis.it/projects/nethserver/wiki/nethserver-smartd"];
+			yum [URL="http://dev.nethesis.it/projects/nethserver/wiki/nethserver-yum"];
+		}
+	}
+
+	
+	antivirus -> base
+	avahi -> base
+	backup_config -> base
+	backup_data -> backup_config
+	base -> lib
+	base -> yum
+	c_icap -> base
+	collectd -> base
+	collectd_web -> collectd
+	collectd_web -> httpd
+	cups -> base
+	directory -> base
+	dnsmasq -> base
+	ejabber -> directory
+	ejabber -> httpd
+	fetchmail -> mail_server
+	firewall_base -> shorewall
+	grub -> base
+	hosts -> base
+	httpd -> base
+	httpd_admin -> nethgui
+	httpd_admin -> php
+	hylafax -> directory
+	hylafax -> mail_common
+	ibays -> directory
+	ipsec -> vpn
+	lightsquid -> httpd
+	lightsquid -> squid
+	mail_common -> base
+	mail_filter -> antivirus
+	mail_filter -> mail_common
+	mail_server -> directory
+	mail_server -> mail_common
+	memcached -> base
+	mysql -> base
+	ntopng -> redis
+	ntp -> base
+	nut -> base
+	openssh -> base
+	openvpn -> vpn
+	php -> base
+	redis -> base
+	register -> base
+	release -> base
+	samba -> directory
+	samba_audit -> httpd
+	samba_audit -> ibays
+	samba_audit -> mysql
+	samba_audit -> samba
+	shorewall -> base
+	smartd -> base
+	sogo -> mail_server
+	sogo -> memcached
+	sogo -> mysql
+	sogo_thunderbird -> base
+	squid -> firewall_base
+	squidclamav -> antivirus
+	squidclamav -> c_icap
+	squidclamav -> httpd
+	squidclamav -> squid
+	squidguard -> httpd
+	squidguard -> squid
+	vpn -> directory
+
+	cups -> avahi [style=dotted,arrowhead=vee];
+	dnsmasq -> hosts [style=dotted,arrowhead=vee];
+	dnsmasq -> ipsec [style=dotted,arrowhead=vee];    
+	httpd -> ibays [style=dotted,arrowhead=vee];
+	mail_server -> samba [style=dotted,arrowhead=vee];    
+	samba -> ibays [style=dotted,arrowhead=vee];
+	samba -> ipsec [style=dotted,arrowhead=vee];   
+	
 }

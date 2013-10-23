@@ -11,7 +11,7 @@ THUMBS := $(addsuffix -thumb.png, $(basename ${DOTFILES}))
 DOCURL=http://dev.nethesis.it/nethserver/
 
 ifndef TAG
-TAGS=v6.4-beta1
+TAGS=v6.4-beta2
 endif
 
 %-thumb.png: %.png
@@ -38,9 +38,9 @@ sync: all rsync.list
 		--files-from=rsync.list \
 		${PWD}/ davidep@dev.nethesis.it:/var/www/html/sites/nethesis-redmine/public/nethserver/$(TAG)
 
-comps.html: comps2html.xsl comps/comps-ns6.xml.in
-	cd comps && make comps-ns6.xml
-	cat comps/comps-ns6.xml | sed 's/_name/name/; s/_description/description/' | xsltproc --stringparam date "`LANG=C date`" --stringparam urlPrefix https://dev.nethesis.it comps2html.xsl  - 2>/dev/null >$@
+comps.html: comps2html.xsl comps/comps-ns64.xml.in
+	cd comps && make comps-ns64.xml
+	cat comps/comps-ns64.xml | sed 's/_name/name/; s/_description/description/' | xsltproc --stringparam date "`LANG=C date`" --stringparam urlPrefix https://dev.nethesis.it comps2html.xsl  - 2>/dev/null >$@
 
 
 rsync.list:
