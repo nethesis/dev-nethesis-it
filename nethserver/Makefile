@@ -10,7 +10,7 @@ DOCURL=https://dev.nethesis.it
 COMPS=nethserver-groups.html
 TARGET ?= $(shell cat target 2>/dev/null)
 TARGET ?= $(shell pwd)
-TAG ?= $(shell git describe --tags | rev | cut -d '-' -f 3- | rev)
+TAG ?= $(shell git describe --tags --long | rev | cut -d '-' -f 3- | rev)
 
 %-thumb.png: %.png
 	convert $< -resize 200x200 $@
