@@ -5,14 +5,12 @@
 DOTFILES := $(shell find . -name '*.dot')
 PNGFILES := $(addsuffix .png, $(basename ${DOTFILES}))
 SVGFILES := $(addsuffix .svg, $(basename ${DOTFILES}))
-ISOFILES := $(shell find iso/ -name '*.iso*')
 THUMBS := $(addsuffix -thumb.png, $(basename ${DOTFILES}))
-
-DOCURL=http://dev.nethesis.it/nethserver/
-
-ifndef TAG
-TAGS=v6.4-beta2
-endif
+DOCURL=https://dev.nethesis.it
+COMPS=nethserver-groups.html
+TARGET ?= $(shell cat target 2>/dev/null)
+TARGET ?= $(shell pwd)
+TAG ?= $(shell git describe --tags | rev | cut -d '-' -f 3- | rev)
 
 %-thumb.png: %.png
 	convert $< -resize 200x200 $@
@@ -25,32 +23,22 @@ endif
 
 .PHONY: clean all sync
 
-all: ${PNGFILES} ${SVGFILES} ${THUMBS} ${TAGS} comps.html
-
-$(TAGS):
-	git archive --format=tar --prefix=$@/nethserver/  $@ . | tar xf -
-	cd $@/nethserver
-	make TAG=$@
-	cd ..
+all: ${PNGFILES} ${SVGFILES} ${THUMBS} ${COMPS}
 
 sync: all rsync.list
 	rsync -zr -e "ssh -p 2222 -c blowfish -l davidep"  \
 		--files-from=rsync.list \
-		${PWD}/ davidep@dev.nethesis.it:/var/www/html/sites/nethesis-redmine/public/nethserver/$(TAG)
+		${PWD}/ $(TARGET)$(TAG)/
 
-comps.html: comps2html.xsl comps/nethserver-groups.xml.in
+$(COMPS): comps2html.xsl comps/nethserver-groups.xml.in
 	cd comps && make nethserver-groups.xml
-	cat comps/nethserver-groups.xml | sed 's/_name/name/; s/_description/description/' | xsltproc --stringparam date "`LANG=C date`" --stringparam urlPrefix https://dev.nethesis.it comps2html.xsl  - 2>/dev/null >$@
-
+	cat comps/nethserver-groups.xml | sed 's/_name/name/; s/_description/description/' | xsltproc --stringparam date "`LANG=C date`" --stringparam urlPrefix "$(DOCURL)" comps2html.xsl  - 2>/dev/null >$@
 
 rsync.list:
 	rm -f $@;
-	for TARGET in ${THUMBS} ${PNGFILES} ${SVGFILES} ${ISOFILES}; do echo $$TARGET >>$@; done
-	echo figures/ >>$@
-	echo comps.html >>$@
-	echo comps2html.xsl >>$@
+	for F in ${THUMBS} ${PNGFILES} ${SVGFILES} ${COMPS}; do echo $$F >>$@; done
 
 clean:
-	rm -rf ${THUMBS} ${PNGFILES} ${SVGFILES} ${TAGS} rsync.list comps.html *~
+	rm -rf ${THUMBS} ${PNGFILES} ${SVGFILES} ${TAGS} ${COMPS} *~ rsync.list
 
 
