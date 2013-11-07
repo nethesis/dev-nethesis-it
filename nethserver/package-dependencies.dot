@@ -79,6 +79,7 @@ digraph "v6.4-beta2" {
 	backup_data -> backup_config
 	base -> lib
 	base -> yum
+	yum -> lib
 	c_icap -> base
 	collectd -> base
 	collectd_web -> collectd
