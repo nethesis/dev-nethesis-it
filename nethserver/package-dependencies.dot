@@ -59,7 +59,7 @@ digraph "v6.5-beta3" {
 			labeljust = "r";
 			fontsize = 14.0
 			base [URL="http://dev.nethserver.org/projects/nethserver/wiki/nethserver-base"];
-			grub [fontcolor=gray];
+
 			hosts [URL="http://dev.nethserver.org/projects/nethserver/wiki/nethserver-hosts"];			
 			httpd_admin [label="httpd-admin",URL="http://dev.nethserver.org/projects/nethserver/wiki/nethserver-httpd-admin"];
 			lib [URL="http://dev.nethserver.org/projects/nethserver/wiki/nethserver-lib"];
@@ -91,7 +91,6 @@ digraph "v6.5-beta3" {
 	ejabber -> httpd
 	fetchmail -> mail_server
 	firewall_base -> shorewall
-	grub -> base
 	hosts -> base
 	httpd -> base
 	httpd_admin -> nethgui
