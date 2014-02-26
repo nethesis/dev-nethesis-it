@@ -1,8 +1,8 @@
-digraph "v6.5-beta3" {
+digraph "v6.5-rc1" {
 	rankdir = "LR";
 	compound = true;
 	concentrate = true;
-	label="NethServer 6.5 beta3";
+	label="NethServer 6.5 rc1";
 	fontsize = 24.0
 	labelloc = "t";
 	labeljust = "l";
