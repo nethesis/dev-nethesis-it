@@ -47,20 +47,25 @@
 	   .toc li, .packagelist li { list-style: none; display: block }
 	   .optional { font-style: italic }
 	   .optional:after { content: " (optional)" }
+           .footer { text-align: right; }
 
 	]]></style>	
       </head>
       <body>
 	<div class="document">
+         <h1>NethServer categories</h1>
+          <ul class="toc">
+	    <xsl:apply-templates mode="toc" select='category'></xsl:apply-templates>
+          </ul>
 	  <h1>NethServer package groups</h1>
-	  <p><small>
-	    Generated on <xsl:value-of select="$date" /> by 
-	    <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$urlPrefix" />/nethserver/comps2html.xsl</xsl:attribute>comps2html.xsl</xsl:element></small>
-	  </p>
 	  <ul class="toc">
-	    <xsl:apply-templates mode="toc" ><xsl:sort select="name" /></xsl:apply-templates>
+	    <xsl:apply-templates mode="toc" select='group'><xsl:sort select="name" /></xsl:apply-templates>
 	  </ul>
 	  <xsl:apply-templates ><xsl:sort select="name" /></xsl:apply-templates>
+          <p class='footer'><small>
+            Generated on <xsl:value-of select="$date" /> by
+            <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$urlPrefix" />/nethserver/comps2html.xsl</xsl:attribute>comps2html.xsl</xsl:element></small>
+          </p>
 	</div>
       </body>
     </html>   
@@ -72,11 +77,27 @@
 	  <xsl:attribute name="href">#<xsl:value-of select="id" /></xsl:attribute>
 	  <xsl:value-of select="name" />
 	</xsl:element>
+        <small> (<xsl:value-of select="id" />)</small>
     </li>
   </xsl:template>
 
-  <xsl:template match="//category" mode="toc"></xsl:template>
+  <xsl:template match="//category" mode="toc">
+      <li>
+        <h3><xsl:value-of select="name"/></h3>
+        <xsl:apply-templates select='grouplist'/>
+      </li>
+  </xsl:template>
   <xsl:template match="//category"></xsl:template>
+
+  <xsl:template match="grouplist">
+    <ul class="grouplist">
+      <xsl:apply-templates />
+    </ul>
+  </xsl:template>
+
+  <xsl:template match="groupid">
+    <li><xsl:value-of select="." /></li>
+  </xsl:template>
 
   <xsl:template match="//group">
     <xsl:element name="h2">
