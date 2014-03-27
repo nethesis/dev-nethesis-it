@@ -53,14 +53,14 @@
       </head>
       <body>
 	<div class="document">
-         <h1>NethServer categories</h1>
-          <ul class="toc">
-	    <xsl:apply-templates mode="toc" select='category'></xsl:apply-templates>
-          </ul>
-	  <h1>NethServer package groups</h1>
+	  <h1>NethServer YUM package groups</h1>
 	  <ul class="toc">
 	    <xsl:apply-templates mode="toc" select='group'><xsl:sort select="name" /></xsl:apply-templates>
 	  </ul>
+         <h2>Categories composition</h2>
+          <ul class="toc">
+	    <xsl:apply-templates mode="toc" select='category'></xsl:apply-templates>
+          </ul>
 	  <xsl:apply-templates ><xsl:sort select="name" /></xsl:apply-templates>
           <p class='footer'><small>
             Generated on <xsl:value-of select="$date" /> by
